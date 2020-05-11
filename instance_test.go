@@ -83,3 +83,46 @@ func TestInstance(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkInstance(b *testing.B) {
+	sm := New().
+		Allow(MyStateA, MyStateA).
+		Allow(MyStateA, MyStateB).
+		Allow(MyStateB, MyStateB).
+		Allow(MyStateB, MyStateC).
+		Start(MyStateA)
+
+	b.Run("NewInstance", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			_, err := sm.NewInstance()
+			if err != nil {
+				b.Fatal(err)
+			}
+		}
+	})
+
+	b.Run("Transition", func(b *testing.B) {
+		smi, err := sm.NewInstance()
+		if err != nil {
+			b.Fatal(err)
+		}
+
+		b.ResetTimer()
+		for i := 0; i < b.N; i++ {
+			// Ignore errors.
+			_ = smi.Transition(MyStateB)
+		}
+	})
+
+	b.Run("MustTransition", func(b *testing.B) {
+		smi, err := sm.NewInstance()
+		if err != nil {
+			b.Fatal(err)
+		}
+
+		b.ResetTimer()
+		for i := 0; i < b.N; i++ {
+			smi.MustTransition(MyStateB)
+		}
+	})
+}
