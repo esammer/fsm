@@ -1,5 +1,7 @@
 # fsm
 
+![Build](https://github.com/esammer/fsm/workflows/Build/badge.svg)
+
 A finite state machine library for Go.
 
 This library has no dependencies (beyond its test suite) beyond Go 1.13. Earlier versions of Go may work, but aren't
