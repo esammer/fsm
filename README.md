@@ -14,14 +14,16 @@ Add fsm to your project.
 
     go get github.com/esammer/fsm
 
-Implement the State interface.
+Decide how you want to represent a state.
 
-Typically, State is a Go-style enum, but that's not necessary.
+The State interface is empty, although implementations must be comparable. Implementations are typically Go-style enums,
+but that's not required.
 
     package mypkg
     
     import "github.com/esammer/fsm"
     
+    // ServerState implements the empty interface and is comparable, and is therefore valid.
     type ServerState int
     
     func (s ServerState) String() string {

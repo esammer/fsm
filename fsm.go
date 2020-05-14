@@ -6,7 +6,8 @@ import (
 
 // A state.
 //
-// Typically states are identified by Go-style enums, but may take any form.
+// Typically states are identified by Go-style enums, but may take most forms. States must be comparable as defined by
+// the Go spec (https://golang.org/ref/spec#Comparison_operators, e.g. can not be a map, slice, or function).
 type State interface {
 }
 
