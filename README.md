@@ -1,6 +1,7 @@
 # fsm
 
-![Build](https://github.com/esammer/fsm/workflows/Build/badge.svg)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/esammer/fsm?label=latest)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/esammer/fsm/Build)](https://github.com/esammer/fsm/actions?query=workflow%3ABuild)
 
 A finite state machine library for Go.
 
@@ -94,6 +95,10 @@ on a MBP 16" with the following specs:
 
     System Version:             macOS 10.15.2 (19C57)
     Kernel Version:             Darwin 19.2.0
+
+## Documentation
+
+You can view the fsm API docs at [pkg.go.dev/github.com/esammer/fsm](https://pkg.go.dev/github.com/esammer/fsm).
 
 ## Issues
 
